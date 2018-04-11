@@ -25,14 +25,26 @@
         <div class="block-foreground">
           <h1 class="block-title"><%= article_title(current_page) %></h1>
           <h4 class="text-muted">Posted by <strong><%= article_author(current_page) %></strong> on <em><%= article_date(current_page) %></em></h4>
-          <button class="btn btn-default btn-outline m-t">
-            <span class="icon icon-facebook"></span>
-            Share
-          </button>
-          <button class="btn btn-default btn-outline m-t">
-            <span class="icon icon-twitter"></span>
-            Tweet
-          </button>
+
+          <!-- buttons under Title-->
+          <div>
+            <!-- button Share Facebook-->
+            <button class="btn btn-default btn-outline m-t">
+              <span class="icon icon-facebook"></span>
+              Share
+            </button>
+            <!-- end/button Share Facebook-->
+
+            <!-- button Tweet --> 
+            <div class="btn btn-default btn-outline m-t">
+              <a href="https://twitter.com/home?status=<%= encode_text("#{ article_title(current_page) } - #{ absolute_url(current_page) } /via @hanamirb #hanamirb") %>" title="Share on Twitter" target="_blank">
+              <span class="icon icon-twitter"></span>
+              Tweet
+              </a>  
+            </div>
+            <!-- end/button Tweet-->
+          </div>
+
         </div>
         <div class="block-background">
           <%= article_image(current_page) %>
